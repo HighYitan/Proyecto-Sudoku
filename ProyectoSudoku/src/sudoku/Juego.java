@@ -3,9 +3,16 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Juego extends JFrame {
+    
+    private Semaforo semaforo;
+    private JFrame contenedor;
+    
     public Juego(){
         super("~~~ Sudoku ~~~");
+        this.semaforo = new Semaforo();
+        semaforo.setJuego(this);
         mostrarContenedor();
+        
     }
     public void mostrarContenedor(){
         setSize(1920, 1080);
@@ -111,13 +118,36 @@ public class Juego extends JFrame {
         restriccion2.gridx = 0;
         restriccion2.gridy = 0;
         restriccion2.gridwidth = 1;
+        restriccion2.gridheight = 1;
         restriccion2.weightx = 0.5;
         restriccion2.weighty = 0.5;
         restriccion2.anchor = GridBagConstraints.PAGE_START;
         restriccion2.insets = new Insets(10,10,10,10);
         gridCaja2.add(start, restriccion2);
+    
+        //restriccion2.ipadx = 30;
+        //restriccion2.ipady = 30;
+        restriccion2.fill = GridBagConstraints.HORIZONTAL;
+        restriccion2.gridx = 0;
+        restriccion2.gridy = 1;
+        restriccion2.gridwidth = 1;
+        restriccion2.weightx = 0.5;
+        restriccion2.weighty = 0.5;
+        restriccion2.anchor = GridBagConstraints.CENTER;
+        restriccion2.insets = new Insets(10,10,10,10);
+        semaforo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gridCaja2.add(semaforo, restriccion2);
+        
+        
         
         contenido.setBackground(Color.gray);
         contenedor.add(contenido, BorderLayout.CENTER);
+    }
+    public Semaforo getSemaforo() {
+        return semaforo;
+    }
+
+    public void setSemaforo(Semaforo semaforo) {
+        this.semaforo = semaforo;
     }
 }
