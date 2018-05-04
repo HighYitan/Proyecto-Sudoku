@@ -31,7 +31,25 @@ public class Juego extends JFrame {
         mostrarContenedor();
 
     }
-
+    public void nuevoTablero(){
+        this.remove(this);
+        this.revalidate();
+        this.repaint();
+      this.semaforo = new Semaforo();
+        semaforo.setJuego(this);
+       // this.tablero = new Tablero();
+        this.sudoku = new Sudoku();
+        
+        this.tablero = new Tablero();
+        tablero.reiniciar(this, sudoku);
+        
+         this.botones = new ArrayList<Boton>();
+        setSize(1920, 1080);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container contenedor = getContentPane();
+        contenedor.setLayout(new BorderLayout());
+        contenido(contenedor);
+    }
     public void mostrarContenedor() {
         setSize(1920, 1080);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,6 +76,8 @@ public class Juego extends JFrame {
 
     public Container contenido(Container contenedor) {
         remove(this);
+        this.revalidate();
+        this.repaint();
         JPanel contenido = new JPanel();
         contenido.setBorder(BorderFactory.createLineBorder(Color.BLACK,10, false));
         GridBagConstraints restriccion = new GridBagConstraints();

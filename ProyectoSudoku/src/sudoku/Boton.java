@@ -25,14 +25,22 @@ public class Boton extends JButton{
             //Boton.this.tablero.remove(tablero);
             //Boton.this.juego.getTablero().remove(tablero.rellenar(juego,sudoku));
             Juego juego1 = new Juego();
-            Boton.this.juego.getTablero().setJuego(juego1);
+            //Boton.this.juego.getTablero().setJuego(juego1);
+            Boton.this.juego.nuevoTablero();
+            
+            //Boton.this.tablero.reiniciar(juego, sudoku);
+            
             
             Juego juego2 = Boton.this.juego;
             Sudoku sudoku1 = new Sudoku();
-            Boton.this.juego.contenido(juego);
-            Boton.this.juego.getTablero().rellenar(juego, sudoku);
+           // Boton.this.juego.contenido(juego);
+            //Boton.this.juego.getTablero().rellenar(juego, sudoku);
             //Boton.this.juego.getSemaforo().setAmarillo();
         }
+    }
+    public void cambiarTablero(){
+        remove(juego);
+        //rellenar();
     }
     public void setAccionar(int algia) {
         switch (algia) {
