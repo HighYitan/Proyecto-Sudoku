@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Semaforo extends JLabel implements ActionListener{
+public class Semaforo extends JLabel /*implements ActionListener*/{
     
     private Juego juego;
     
@@ -13,8 +13,41 @@ public class Semaforo extends JLabel implements ActionListener{
         //JLabel imagen = new JLabel(img);
         //this.setIcon(new ImageIcon("yitan.jpg"));
         this.setIcon(new ImageIcon(getClass().getResource("yitan.jpg")));
+        //this.revalidate();
+        //this.repaint();
     }
-    @Override
+    public void setRojo() {
+        this.setIcon(new ImageIcon(getClass().getResource("suicidio.jpg")));
+        juego.revalidate();
+        juego.repaint();
+    }
+    
+    public void setAmarillo() {
+        this.setIcon(new ImageIcon(getClass().getResource("yitan.jpg")));
+        juego.revalidate();
+        juego.repaint();
+    }
+    
+    public void setVerde() {
+        this.setIcon(new ImageIcon(getClass().getResource("salvador.jpg"))); 
+        juego.revalidate();
+        juego.repaint();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //@Override
     public void actionPerformed(ActionEvent e){
         for(int i = 0; i<9;i++){
             for(int j = 0; j<9;j++){
